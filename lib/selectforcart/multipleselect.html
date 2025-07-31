@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-select Options</title>
+</head>
+<body>
+
+<select id="mySelectedbreakfast" multiple>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+  <option value="option4">Option 4</option>
+  <option value="option5">Option 5</option>
+  <option value="option6">Option 6</option>
+  <option value="option7">Option 7</option>
+  <option value="option8">Option 8</option>
+</select>
+
+<select id="mySelectedlunch" multiple>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    <option value="option4">Option 4</option>
+    <option value="option5">Option 5</option>
+    <option value="option6">Option 6</option>
+    <option value="option7">Option 7</option>
+    <option value="option8">Option 8</option>
+</select>
+
+
+<select id="mySelecteddinner" multiple>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    <option value="option4">Option 4</option>
+    <option value="option5">Option 5</option>
+    <option value="option6">Option 6</option>
+    <option value="option7">Option 7</option>
+    <option value="option8">Option 8</option>
+</select>
+
+<button onclick="displaySelectedOptions()">Display Selected Options</button>
+
+<p id="selectedOptions"></p>
+
+<script src="multipleselect.js"></script>
+</body>
+</html>
+
+
+
+
+<select id="mySelecteddinner" multiple>
+  <option value="option1">Option 1</option>
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-select Options</title>
+</head>
+<body>
+
+<select id="mySelectedbreakfast" multiple>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+  <option value="option4">Option 4</option>
+  <option value="option5">Option 5</option>
+  <option value="option6">Option 6</option>
+  <option value="option7">Option 7</option>
+  <option value="option8">Option 8</option>
+</select>
+
+<select id="mySelectedlunch" multiple>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    <option value="option4">Option 4</option>
+    <option value="option5">Option 5</option>
+    <option value="option6">Option 6</option>
+    <option value="option7">Option 7</option>
+    <option value="option8">Option 8</option>
+</select>
+
+<select id="mySelecteddinner" multiple>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+    <option value="option4">Option 4</option>
+    <option value="option5">Option 5</option>
+    <option value="option6">Option 6</option>
+    <option value="option7">Option 7</option>
+    <option value="option8">Option 8</option>
+</select>
+
+<label><input type="checkbox" id="option1" value="option1"> Select</label>
+<button onclick="addToCart()">Add to Cart</button>
+
+<p id="selectedOptions"></p>
+
+<script>
+function displaySelectedOptions() {
+  const selectElementbreakfast = document.getElementById('mySelectedbreakfast');
+  const selectElementlunch = document.getElementById('mySelectedlunch');
+  const selectElementdinner = document.getElementById('mySelecteddinner');
+  
+  const selectedOptionsBreakfast = getSelectedOptions(selectElementbreakfast);
+  const selectedOptionsLunch = getSelectedOptions(selectElementlunch);
+  const selectedOptionsDinner = getSelectedOptions(selectElementdinner);
+
+  const selectedOptions = {
+    breakfast: selectedOptionsBreakfast,
+    lunch: selectedOptionsLunch,
+    dinner: selectedOptionsDinner
+  };
+
+  document.getElementById('selectedOptions').textContent = "Selected Options: " + JSON.stringify(selectedOptions);
+}
+
+function getSelectedOptions(selectElement) {
+  const selectedOptions = [];
+  for (let i = 0; i < selectElement.options.length; i++) {
+    if (selectElement.options[i].selected) {
+      selectedOptions.push(selectElement.options[i].value);
+    }
+  }
+  return selectedOptions;
+}
+
+function addToCart() {
+  const checkbox = document.getElementById('option1');
+  if (checkbox.checked) {
+    // Perform the add to cart operation here
+    alert('Item added to cart!');
+  } else {
+    alert('Please select the checkbox to add to cart.');
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

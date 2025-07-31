@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Theme Web Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <style>
+        /* Custom styles if needed */
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation Menu -->
+    <nav class="bg-blue-500 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">WebStore</div>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-blue-200">Home</a>
+                <a href="#" class="hover:text-blue-200">Products</a>
+                <a href="#" class="hover:text-blue-200">About</a>
+                <a href="#" class="hover:text-blue-200">Contact</a>
+                <button id="cartButton" class="relative">
+                    <i class="bi bi-cart"></i>
+                    <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-8">
+        <h1 class="text-2xl font-semibold mb-4">Welcome to Our Web Store</h1>
+        <!-- Products or other content would go here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 p-4 text-white mt-8">
+        <div class="container mx-auto text-center">
+            &copy; 2023 WebStore. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Placeholder for cart functionality
+            $('#cartButton').on('click', function() {
+                // Logic to handle cart would be implemented here
+                alert('Cart functionality to be implemented.');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Theme Web Store with Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles if needed */
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation Menu -->
+    <nav class="bg-blue-500 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">WebStore</div>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-blue-200">Home</a>
+                <a href="#" class="hover:text-blue-200">Products</a>
+                <a href="#" class="hover:text-blue-200">About</a>
+                <a href="#" class="hover:text-blue-200">Contact</a>
+                <button id="cartButton" class="relative">
+                    <i class="bi bi-cart"></i>
+                    <span id="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-8">
+        <h1 class="text-2xl font-semibold mb-4">Select Your Choice</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Dynamically generated product cards -->
+            <!-- Placeholder for 8 product options -->
+            <script id="product-template" type="text/x-custom-template">
+                <div class="border p-4 rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/150" alt="Product Image" class="w-full h-40 object-cover mb-2">
+                    <h3 class="text-lg font-semibold mb-1">Product Name</h3>
+                    <p class="text-gray-600 mb-2">Product Description</p>
+                    <button class="addToCart bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Add to Cart
+                    </button>
+                </div>
+            </script>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Shopping Cart</h3>
+                <div class="mt-2 px-7 py-3">
+                    <!-- Cart items will be inserted here -->
+                    <div id="cartItems" class="divide-y divide-gray-200">
+                        <!-- Cart item template -->
+                        <script id="cart-item-template" type="text/x-custom-template">
+                            <div class="py-4 flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Product Image" class="w-12 h-12 object-cover mr-3">
+                                    <span class="font-medium text-gray-900">Product Name</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <button class="decreaseQuantity text-gray-500 hover:text-gray-700">
+                                        <i class="bi bi-dash-circle"></i>
+                                    </button>
+                                    <span class="mx-2">1</span>
+                                    <button class="increaseQuantity text-gray-500 hover:text-gray-700">
+                                        <i class="bi bi-plus-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </script>
+                    </div>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <button id="closeModal" class="px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md w-full shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 p-4 text-white mt-8">
+        <div class="container mx-auto text-center">
+            &copy; 2023 WebStore. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Placeholder for cart functionality
+            $('#cartButton').on('click', function() {
+                $('#cartModal').removeClass('hidden');
+            });
+
+            $('#closeModal').on('click', function() {
+                $('#cartModal').addClass('hidden');
+            });
+
+            // Generate product cards
+            for (let i = 0; i < 8; i++) {
+                let productCard = $($('#product-template').html());
+                $('.grid').append(productCard);
+            }
+
+            // Add to cart functionality
+            $('.addToCart').on('click', function() {
+                let cartCount = parseInt($('#cartCount').text());
+                $('#cartCount').text(cartCount + 1);
+
+                let cartItem = $($('#cart-item-template').html());
+                $('#cartItems').append(cartItem);
+            });
+
+            // Increase quantity
+            $(document).on('click', '.increaseQuantity', function() {
+                let quantity = parseInt($(this).prev().text());
+                $(this).prev().text(quantity + 1);
+            });
+
+            // Decrease quantity
+            $(document).on('click', '.decreaseQuantity', function() {
+                let quantity = parseInt($(this).next().text());
+                if (quantity > 1) {
+                    $(this).next().text(quantity - 1);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addy's Kitchen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Addy's Kitchen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cookies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary py-5 hero">
+        <div class="container py-5">
+            <h1 class="display-3 text-light mb-4">Welcome to Addy's Kitchen</h1>
+            <p class="col-md-8 fs-4 text-light">We offer a variety of delicious and nutritious food options for breakfast, lunch, and dinner.</p>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- Menu Start -->
+    <div class="container mt-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="breakfast-tab" data-bs-toggle="tab" data-bs-target="#breakfast" type="button" role="tab" aria-controls="breakfast" aria-selected="true">Breakfast</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="lunch-tab" data-bs-toggle="tab" data-bs-target="#lunch" type="button" role="tab" aria-controls="lunch" aria-selected="false">Lunch</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="dinner-tab" data-bs-toggle="tab" data-bs-target="#

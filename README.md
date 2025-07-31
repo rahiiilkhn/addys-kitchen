@@ -25,7 +25,7 @@
 
 ## 🚀 How to Use
 
-1. Visit the [live site](https://your-deployment-link.com) *(add this once deployed)*
+1. Visit the [live site](https://your-deployment-link.com) 
 2. Browse available kitchen slots
 3. Select your preferred time and date
 4. Submit the booking form

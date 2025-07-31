@@ -33,14 +33,6 @@
 
 > 🔒 Note: This project does not currently have backend or database integration. It is meant as a design or frontend prototype.
 
----
-
-## 📸 Screenshots
-
-> *(Add screenshots of the homepage and booking section here if available)*
-
----
-
 ## 📦 Folder Structure
 
 

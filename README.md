@@ -33,9 +33,6 @@
 
 > 🔒 Note: This project does not currently have backend or database integration. It is meant as a design or frontend prototype.
 
-## 📦 Folder Structure
-
-
 ---
 
 ## 🚧 Future Improvements

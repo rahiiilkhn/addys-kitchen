@@ -25,7 +25,7 @@
 
 ## 🚀 How to Use
 
-1. Visit the [live site](https://rahiiilkhn.github.io/Addys-Kitchen/) 
+1. Visit the [live site](https://rahiiilkhn.github.io/addys-kitchen/) 
 2. Browse available kitchen slots
 3. Select your preferred time and date
 4. Submit the booking form
